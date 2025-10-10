@@ -1,0 +1,61 @@
+/* Base: simple, readable, good contrast */
+:root{
+  --bg:#0f172a; --panel:#111827; --text:#f8fafc; --muted:#cbd5e1;
+  --accent:#4f46e5; --danger:#ef4444;
+}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif; /* required */
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+.site-header,.site-footer{
+  padding:1rem 1.25rem; background:#0b1224; border-bottom:1px solid #1f2937;
+}
+.site-footer{ border-top:1px solid #1f2937; border-bottom:0; }
+
+.container{
+  max-width:880px; margin:1rem auto 2rem; padding:0 1.25rem;
+  display:grid; gap:1rem;
+}
+.card{
+  background:var(--panel); border:1px solid #1f2937; border-radius:12px; padding:1rem;
+}
+
+.field{ display:grid; gap:.4rem; margin-bottom:.75rem; }
+.label{ font-weight:700; }
+.input{
+  padding:.7rem .9rem; border:2px solid #374151; background:#0b1220; color:var(--text); border-radius:10px;
+}
+.input:focus{ outline:2px solid #fff; outline-offset:2px; border-color:var(--accent); }
+
+.btn{
+  display:inline-block; padding:.6rem 1rem; border:0; border-radius:999px;
+  background:var(--accent); color:#fff; font-weight:700; cursor:pointer;
+}
+.btn:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+
+.error{ color:var(--danger); min-height:1.2rem; margin-top:.4rem; }
+.hint{ color:var(--muted); font-size:.95rem; }
+
+.todo-list{ list-style:none; padding:0; margin:.5rem 0 0; display:grid; gap:.5rem; }
+.todo-item{
+  display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+  padding:.6rem .9rem; background:#0e162b; border:1px solid #253046; border-radius:10px;
+}
+.todo-text{ flex:1 1 auto; min-width:0; word-break:break-word; }
+.todo-delete{
+  padding:.45rem .7rem; border:1px solid #303b5a; background:#111a32; color:var(--text); border-radius:6px; cursor:pointer;
+}
+.todo-delete:hover{ background:#172040; }
+.todo-delete:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+.sr-only{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+@media (min-width:720px){ .container{ grid-template-columns:1fr 1fr; } }

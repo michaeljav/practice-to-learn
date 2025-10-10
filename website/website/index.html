@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accessible Todo List</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Accessible Todo List</h1>
+      <p id="page-desc">Manage your tasks with keyboard and screen reader support.</p>
+    </header>
+
+    <main id="main" role="main" class="container" aria-describedby="page-desc">
+      <section aria-labelledby="form-heading" class="card">
+        <h2 id="form-heading">Add a task</h2>
+
+        <form id="task-form" novalidate>
+          <div class="field">
+            <label for="task-input" class="label">Task</label>
+            <input
+              id="task-input"
+              name="task"
+              type="text"
+              class="input"
+              placeholder="e.g., Call the client"
+              required
+              aria-required="true"
+              aria-describedby="task-hint error-message"
+              autocomplete="off"
+            />
+            <div id="task-hint" class="hint">
+              Enter a short, clear description of the task.
+            </div>
+          </div>
+
+          <button id="add-btn" type="submit" class="btn">Add task</button>
+
+          <!-- Live region for SR users -->
+          <p id="sr-status" class="sr-only" aria-live="polite"></p>
+          <!-- Validation / error messages -->
+          <p id="error-message" class="error" role="alert" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section aria-labelledby="list-heading" class="card">
+        <h2 id="list-heading">Your tasks</h2>
+        <ul id="todo-list" class="todo-list" aria-describedby="list-help"></ul>
+        <p id="list-help" class="hint">
+          Use Tab to move between tasks; press Delete or Backspace on a focused “Delete” button to remove a task.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>&copy; <span id="year"></span> Website</small>
+    </footer>
+
+    <script src="./index.js" defer></script>
+  </body>
+</html>
